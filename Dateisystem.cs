@@ -72,7 +72,7 @@ namespace Projekt_Betriebssystem
             return LocalFileSystem.GetFileSystemType(Kernel.currentPath);
         }
 
-        //Listet alle verfügabaren Dateien auf die der aktuelle Benutzer Zugriff hat
+        //Listet alle verfügabaren Dateien auf, auf die der aktuelle Benutzer Zugriff hat
         public static void ListFiles(int currentPermission)
         {
             Console.WriteLine("Verfuegbare Dateien:");
@@ -85,7 +85,7 @@ namespace Projekt_Betriebssystem
             }
         }
 
-        //Erstellt eine neue Datei und gibt ihr Rechte
+        //Erstellt eine neue Datei und legt Permission fest
         public static bool CreateNewFile(string file, int permission, int currentPermission)
         {
             string fileName = file;
@@ -104,7 +104,7 @@ namespace Projekt_Betriebssystem
                 return false;
             }
 
-            //Überprüft, ob die Datei die .txt am Ende hat
+            //Überprüft, ob die Datei auf .txt endet
             if (!fileName.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
             {
                 Console.WriteLine("Datei konnte nicht erstellt werden! Es sind nur .txt-Dateien erlaubt.");
@@ -118,7 +118,7 @@ namespace Projekt_Betriebssystem
                 return false;
             }
 
-            //die Datei wird erstellt und die Permissions werden  gespeichert
+            //die Datei wird erstellt und die Permissions werden gespeichert
             try
             {
                 File.Create(Kernel.currentPath + fileName).Dispose();
@@ -187,7 +187,7 @@ namespace Projekt_Betriebssystem
                 return;
             }
 
-            //Anweisungen und bisheriger Inhalt anzeigen
+            //Anweisungen und bisherigen Inhalt anzeigen
             Console.WriteLine("Druecken Sie ENTER, um den neuen Inhalt zu speichern.");
             Console.WriteLine("--- Bisheriger Inhalt ---");
             Console.WriteLine(fileContent);

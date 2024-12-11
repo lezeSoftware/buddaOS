@@ -28,8 +28,8 @@ namespace Projekt_Betriebssystem
         public void ExecuteCommand(string input)
         {
             string[] parts = input.Split(' ');
-            string commandName = parts[0];  //Command
-            string[] args = parts.Skip(1).ToArray();  //Argumente beginnend bei 0
+            string commandName = parts[0]; 
+            string[] args = parts.Skip(1).ToArray();
 
             Command command = commands.FirstOrDefault(c => c.Name == commandName); //Funktion sucht das erste Objekt mit dem Namen:commandName
 
@@ -92,7 +92,7 @@ namespace Projekt_Betriebssystem
     }
 
     //Für jeden Command eine eigene Klasse abgeleitet von Command
-    //Commands müssen im Kernel deklariert werden
+    //Commands müssen im Kernel registriert werden
     public class HelpCommand : Command
     {
         private CommandManager commandManager;

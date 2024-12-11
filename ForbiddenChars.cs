@@ -4,7 +4,7 @@ namespace Projekt_Betriebssystem
 {
     internal static class ForbiddenChars
     {
-        private static char[] forbiddenChars = new char[] //Zeichen ergänzen
+        private static char[] forbiddenChars = new char[] //Liste verboteneer Zeichen
         {
             '#',
             '+',

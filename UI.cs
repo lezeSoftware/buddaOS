@@ -4,7 +4,7 @@ namespace Projekt_Betriebssystem
 {
     internal static class UI
     {
-        //Print leert und schreibt BuddaOS in Regenbogenfarben in die Konsole
+        //Konsole leeren und BuddaOS in Regenbogenfarben in die Konsole schreiben
         public static void Init()
         {
             Console.Clear();
@@ -29,7 +29,7 @@ namespace Projekt_Betriebssystem
             Console.ResetColor();
         }
 
-        //Schreibt Username in Blau und setzt die Farbe zurück auf Weiß für die Eingabe
+        //Schreibt den Username in Blau und setzt die Farbe zurück auf Weiß für die Eingabe
         public static void PrintCurrentPosition() 
         {
             Console.ForegroundColor = ConsoleColor.Blue;

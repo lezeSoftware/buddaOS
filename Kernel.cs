@@ -3,7 +3,7 @@ using Sys = Cosmos.System;
 
 namespace Projekt_Betriebssystem
 {
-    //Aufgaben Benutzerverzeichnis erstellen und Pfad legen
+    //Main Klasse
     public class Kernel : Sys.Kernel
     {
         //Initialisiert den LoginManager und den CommandHandler
@@ -62,7 +62,7 @@ namespace Projekt_Betriebssystem
         //Loop --> eigentliche Funktion des Systems
         protected override void Run()
         {
-            loginManager.Login(); //Abfrage ob Benutzer angemeldet
+            loginManager.Login(); //Abfrage ob Benutzer angemeldet --> Login entsprechend ausführen oder überspringen
             UI.PrintCurrentPosition();
 
             //Eingaben werden verwaltet

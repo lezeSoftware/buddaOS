@@ -18,7 +18,7 @@ namespace Projekt_Betriebssystem
             {
                 //Wenn keine Benutzer existieren, füge einen Standard-Admin hinzu
                 users.Add(new User("Admin", "Admin123", 1));
-                SaveUsers(); //Speichert den Standard-Admin
+                SaveUsers(); //Speichert Dictionary in Datei
             }
         }
 
@@ -120,14 +120,14 @@ namespace Projekt_Betriebssystem
             return password;
         }
 
-        //Sucht ein Benutzer mittels dem Benutzernamen
+        //Sucht ein Benutzer mittels des Benutzernamens
         private User FindUserByUsername(string username)
         {
             return users.Find(u => u.Username == username);
         }
 
         //Gibt die Permission des aktuellen Benutzers zurück
-        //Wenn keine Permissions dem Benutzer zugeordnet sind, bekommt der Benutzer als Permission die 3
+        //Wenn dem Benutzer keine Permission zugeordnet ist bekommt der Benutzer als Permission die 3
         public int GetUserPermission()
         {
             return currentUser != null ? currentUser.Permission : 3;
@@ -222,7 +222,7 @@ namespace Projekt_Betriebssystem
             Console.WriteLine($"Benutzer {username} wurde erfolgreich geloescht.");
         }
 
-        //Äjndert das Passwort eines Benutzers, wenn der aktuelle Benutzer ein Admin ist
+        //Ändert das Passwort eines Benutzers, wenn der aktuelle Benutzer ein Admin ist
         public void ChangePassword(string username, string newPassword)
         {
             if (currentUser.Permission != 1)
@@ -278,7 +278,7 @@ namespace Projekt_Betriebssystem
             Console.WriteLine($"Berechtigung fuer {username} wurde erfolgreich geaendert.");
         }
 
-        //Speichert alle Benutzer in einer UserFile, damit die Benutzer beim nächsten Neustart verfügbar sind
+        //Speichert alle Benutzer in einer UserFile, damit die Benutzer beim nächsten Start verfügbar sind
         public void SaveUsers()
         {
             string userFile = Path.Combine(Kernel.currentPath, "users.sys");
@@ -300,7 +300,7 @@ namespace Projekt_Betriebssystem
             }
         }
 
-        //Lädt die UserFile beim Start (BeforeRun())
+        //Lädt die UserFile beim Start (BeforeRun()) --> Kernel
         public void LoadUsers()
         {
             string userFile = Path.Combine(Kernel.currentPath, "users.sys");

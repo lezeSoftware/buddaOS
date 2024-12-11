@@ -46,7 +46,7 @@ public class CommandHistoryManager
                 Console.SetCursorPosition(dummy.Length + input.Length, Console.CursorTop); 
             }
 
-            //Zum navigieren
+            //Hochnavigieren
             else if (keyInfo.Key == ConsoleKey.UpArrow)
             {
                 if (historyIndex > 0)
@@ -55,7 +55,7 @@ public class CommandHistoryManager
                     DisplayHistoryInput(ref input);
                 }
             }
-            //Auch zum navigieren
+            //Runternavigieren
             else if (keyInfo.Key == ConsoleKey.DownArrow)
             {
                 if (historyIndex < commandHistory.Count - 1)
